@@ -91,9 +91,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-sm mb-4 md:mb-0">
-            © 2025 DroneAura. All rights reserved. | Designed with ❤️ for aerial storytelling
-          </p>
+          <p className="text-gray-300 text-sm mb-4 md:mb-0">© 2025 DroneAura. All rights reserved. | Designed with ❤️ for photography lovers</p>
           <div className="flex space-x-6 text-sm text-gray-300">
             <a href="#privacy" className="hover:text-primary transition-smooth">
               Privacy Policy
