@@ -7,6 +7,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { BookingForm } from "@/components/BookingForm";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { StickyBottomNav } from "@/components/StickyBottomNav";
 import { SEOHead } from "@/components/SEOHead";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
       <BookingForm />
       <Footer />
       <ScrollToTop />
+      <StickyBottomNav />
     </div>
   );
 };

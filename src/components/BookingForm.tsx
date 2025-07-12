@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Calendar, MapPin, Phone, Mail, MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Calendar as CalendarComponent } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useToast } from "@/hooks/use-toast";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 interface FormData {
   name: string;
   email: string;
   phone: string;
   shootType: string;
-  date: string;
-  location: string;
+  dates: Date[];
+  city: string;
+  address: string;
+  pincode: string;
   message: string;
 }
 
@@ -23,6 +29,12 @@ const shootTypes = [
   "Other (Please specify)"
 ];
 
+const cities = [
+  "Delhi",
+  "Gurgaon", 
+  "Noida"
+];
+
 export function BookingForm() {
   const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
@@ -30,8 +42,10 @@ export function BookingForm() {
     email: "",
     phone: "",
     shootType: "",
-    date: "",
-    location: "",
+    dates: [],
+    city: "",
+    address: "",
+    pincode: "",
     message: ""
   });
 
@@ -39,6 +53,10 @@ export function BookingForm() {
     e.preventDefault();
     
     // Create WhatsApp message
+    const datesText = formData.dates.length > 0 
+      ? formData.dates.map(date => format(date, "PPP")).join(", ")
+      : "Not specified";
+    
     const whatsappMessage = `Hi DroneAura! I'd like to book a drone shoot.
 
 📋 Booking Details:
@@ -46,14 +64,16 @@ export function BookingForm() {
 • Email: ${formData.email}
 • Phone: ${formData.phone}
 • Service: ${formData.shootType}
-• Preferred Date: ${formData.date}
-• Location: ${formData.location}
+• Preferred Dates: ${datesText}
+• City: ${formData.city}
+• Address: ${formData.address}
+• PIN Code: ${formData.pincode}
 
 💬 Message: ${formData.message}
 
 Looking forward to working with you!`;
 
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/919716199493?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     toast({
@@ -69,12 +89,19 @@ Looking forward to working with you!`;
     }));
   };
 
+  const handleDateSelect = (dates: Date[] | undefined) => {
+    setFormData(prev => ({
+      ...prev,
+      dates: dates || []
+    }));
+  };
+
   return (
     <section id="booking" className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Book Your <span className="bg-gradient-sky bg-clip-text text-transparent">Aerial Shoot</span>
+            Book Your <span className="bg-gradient-sky bg-clip-text text-transparent">Flight</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to capture your story from above? Fill out the form below and we'll get back to you within 24 hours.
@@ -142,57 +169,111 @@ Looking forward to working with you!`;
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Service Type *
+                  City *
                 </label>
                 <select
-                  name="shootType"
+                  name="city"
                   required
-                  value={formData.shootType}
+                  value={formData.city}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
                 >
-                  <option value="">Select service type</option>
-                  {shootTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
+                  <option value="">Select city</option>
+                  {cities.map(city => (
+                    <option key={city} value={city}>{city}</option>
                   ))}
                 </select>
               </div>
             </div>
 
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Service Type *
+              </label>
+              <select
+                name="shootType"
+                required
+                value={formData.shootType}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
+              >
+                <option value="">Select service type</option>
+                {shootTypes.map(type => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Preferred Dates *
+              </label>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-full justify-start text-left font-normal",
+                      formData.dates.length === 0 && "text-muted-foreground"
+                    )}
+                  >
+                    <Calendar className="mr-2 h-4 w-4" />
+                    {formData.dates.length > 0
+                      ? `${formData.dates.length} date(s) selected`
+                      : "Select dates"}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <CalendarComponent
+                    mode="multiple"
+                    selected={formData.dates}
+                    onSelect={handleDateSelect}
+                    initialFocus
+                    className="pointer-events-auto"
+                  />
+                </PopoverContent>
+              </Popover>
+              {formData.dates.length > 0 && (
+                <div className="mt-2 text-sm text-muted-foreground">
+                  Selected: {formData.dates.map(date => format(date, "MMM dd, yyyy")).join(", ")}
+                </div>
+              )}
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Preferred Date *
+                  Address *
                 </label>
                 <div className="relative">
-                  <Calendar className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+                  <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
                   <input
-                    type="date"
-                    name="date"
+                    type="text"
+                    name="address"
                     required
-                    value={formData.date}
+                    value={formData.address}
                     onChange={handleChange}
                     className="w-full pl-10 pr-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
+                    placeholder="Enter complete address"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Location *
+                  PIN Code *
                 </label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    name="location"
-                    required
-                    value={formData.location}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
-                    placeholder="City, Venue, or Address"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="pincode"
+                  required
+                  value={formData.pincode}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
+                  placeholder="Enter PIN code"
+                  pattern="[0-9]{6}"
+                  maxLength={6}
+                />
               </div>
             </div>
 
@@ -217,7 +298,7 @@ Looking forward to working with you!`;
             <div className="pt-4">
               <Button type="submit" variant="cta" size="xl" className="w-full group">
                 <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                Book Your Aerial Shoot
+                Book Your Flight
               </Button>
               <p className="text-sm text-muted-foreground text-center mt-3">
                 You'll be redirected to WhatsApp to complete your booking request
@@ -230,7 +311,7 @@ Looking forward to working with you!`;
             <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
-                +91 98765 43210
+                +91 97161 99493
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-primary" />

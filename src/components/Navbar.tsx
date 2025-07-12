@@ -61,7 +61,7 @@ export function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-              Book Now
+              Book Your Flight
             </Button>
           </div>
 
@@ -98,7 +98,7 @@ export function Navbar() {
             ))}
             <div className="px-3 py-2">
               <Button variant="hero" className="w-full" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-                Book Now
+                Book Your Flight
               </Button>
             </div>
           </div>

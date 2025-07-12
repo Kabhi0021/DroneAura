@@ -54,7 +54,7 @@ export function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button variant="cta" size="xl" className="group" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-            Book Your Aerial Shoot
+            Book Your Flight
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           

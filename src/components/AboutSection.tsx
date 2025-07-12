@@ -65,7 +65,7 @@ export function AboutSection() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-                Book Your Aerial Shoot
+                Book Your Flight
               </Button>
               <Button variant="outline" size="lg">
                 Our Certifications
@@ -136,7 +136,7 @@ export function AboutSection() {
               safety, creativity, and customer satisfaction.
             </p>
             <Button variant="cta" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-              Start Your Story With Us
+              Book Your Flight
             </Button>
           </div>
         </div>

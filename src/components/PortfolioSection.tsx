@@ -171,7 +171,7 @@ export function PortfolioSection() {
             className="hover-scale"
             onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Start Your Project
+            Book Your Flight
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </div>
