@@ -116,8 +116,11 @@ export function ServicesSection() {
               a customized aerial photography solution that perfectly fits your vision and budget.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-sky text-white px-8 py-3 rounded-lg font-semibold hover:shadow-floating transition-smooth hover:scale-105">
-                Get Custom Quote
+              <button 
+                className="bg-gradient-fuschia text-white px-8 py-3 rounded-lg font-semibold hover:shadow-floating transition-smooth hover:scale-105"
+                onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Book Your Aerial Shoot
               </button>
               <button className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-smooth">
                 View Portfolio

@@ -64,8 +64,8 @@ export function AboutSection() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg">
-                Meet Our Team
+              <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+                Book Your Aerial Shoot
               </Button>
               <Button variant="outline" size="lg">
                 Our Certifications
@@ -135,7 +135,7 @@ export function AboutSection() {
               drone photography accessible to everyone while maintaining the highest standards of 
               safety, creativity, and customer satisfaction.
             </p>
-            <Button variant="cta" size="lg">
+            <Button variant="cta" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
               Start Your Story With Us
             </Button>
           </div>

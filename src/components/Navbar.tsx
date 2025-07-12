@@ -8,8 +8,7 @@ const navigation = [
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Blog", href: "#blog" },
+  { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -61,7 +60,7 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="lg">
+            <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
               Book Now
             </Button>
           </div>
@@ -98,7 +97,7 @@ export function Navbar() {
               </a>
             ))}
             <div className="px-3 py-2">
-              <Button variant="hero" className="w-full">
+              <Button variant="hero" className="w-full" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
                 Book Now
               </Button>
             </div>

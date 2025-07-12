@@ -17,23 +17,27 @@ All colors MUST be HSL for optimal gradient support.
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 4%;
 
-    /* Sky Blue Primary - Professional & Trustworthy */
-    --primary: 199 89% 48%;
+    /* Teal Primary - Professional & Trustworthy */
+    --primary: 185 57% 33%;
     --primary-foreground: 210 40% 98%;
-    --primary-light: 199 89% 65%;
-    --primary-dark: 199 89% 35%;
+    --primary-light: 185 57% 50%;
+    --primary-dark: 185 57% 20%;
 
-    /* Cloud White Secondary */
-    --secondary: 210 40% 96%;
+    /* Light Blue/Gray Secondary */
+    --secondary: 210 40% 85%;
     --secondary-foreground: 224 71% 4%;
 
-    /* Muted Sky Tones */
-    --muted: 210 40% 94%;
+    /* Light Pink Muted */
+    --muted: 340 25% 92%;
     --muted-foreground: 215 16% 47%;
 
-    /* Sunset Accent */
-    --accent: 25 95% 53%;
+    /* Hot Pink/Fuschia Accent */
+    --accent: 323 85% 62%;
     --accent-foreground: 210 40% 98%;
+
+    /* Maroon/Burgundy */
+    --maroon: 345 60% 45%;
+    --maroon-foreground: 210 40% 98%;
 
     /* Drone Tech Dark */
     --tech-dark: 224 71% 4%;
@@ -49,9 +53,10 @@ All colors MUST be HSL for optimal gradient support.
     --radius: 0.75rem;
 
     /* DroneAura Specific Design Tokens */
-    --gradient-sky: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 65%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 95% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48% / 0.9), hsl(224 71% 4% / 0.7));
+    --gradient-sky: linear-gradient(135deg, hsl(185 57% 33%), hsl(185 57% 50%));
+    --gradient-fuschia: linear-gradient(135deg, hsl(323 85% 62%), hsl(320 85% 70%));
+    --gradient-maroon: linear-gradient(135deg, hsl(345 60% 45%), hsl(340 60% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(185 57% 33% / 0.9), hsl(224 71% 4% / 0.7));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
     
     --shadow-soft: 0 4px 20px hsl(199 89% 48% / 0.1);
@@ -133,8 +138,12 @@ All colors MUST be HSL for optimal gradient support.
     background: var(--gradient-sky);
   }
   
-  .gradient-sunset {
-    background: var(--gradient-sunset);
+  .gradient-fuschia {
+    background: var(--gradient-fuschia);
+  }
+  
+  .gradient-maroon {
+    background: var(--gradient-maroon);
   }
   
   .gradient-hero {

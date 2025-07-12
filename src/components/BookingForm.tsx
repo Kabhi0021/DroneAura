@@ -215,9 +215,9 @@ Looking forward to working with you!`;
 
             {/* Submit Button */}
             <div className="pt-4">
-              <Button type="submit" variant="hero" size="xl" className="w-full group">
+              <Button type="submit" variant="cta" size="xl" className="w-full group">
                 <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                Send to WhatsApp & Book Now
+                Book Your Aerial Shoot
               </Button>
               <p className="text-sm text-muted-foreground text-center mt-3">
                 You'll be redirected to WhatsApp to complete your booking request

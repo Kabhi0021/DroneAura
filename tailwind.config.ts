@@ -34,6 +34,10 @@ export default {
 					light: 'hsl(var(--primary-light))',
 					dark: 'hsl(var(--primary-dark))'
 				},
+				maroon: {
+					DEFAULT: 'hsl(var(--maroon))',
+					foreground: 'hsl(var(--maroon-foreground))'
+				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
@@ -75,7 +79,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-sky': 'var(--gradient-sky)',
-				'gradient-sunset': 'var(--gradient-sunset)',
+				'gradient-fuschia': 'var(--gradient-fuschia)',
+				'gradient-maroon': 'var(--gradient-maroon)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
 			},

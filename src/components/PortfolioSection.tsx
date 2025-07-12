@@ -165,8 +165,13 @@ export function PortfolioSection() {
 
         {/* View More CTA */}
         <div className="mt-16 text-center">
-          <Button variant="outline" size="lg" className="hover-scale">
-            View Complete Portfolio
+          <Button 
+            variant="cta" 
+            size="lg" 
+            className="hover-scale"
+            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Start Your Project
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </div>

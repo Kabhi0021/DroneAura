@@ -71,7 +71,12 @@ export function ServiceCard({
             <span className="text-2xl font-bold text-primary">{price}</span>
             <span className="text-muted-foreground text-sm ml-1">starting</span>
           </div>
-          <Button variant={featured ? "hero" : "default"} size="sm" className="hover-scale">
+          <Button 
+            variant={featured ? "hero" : "cta"} 
+            size="sm" 
+            className="hover-scale"
+            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Book Now
           </Button>
         </div>
