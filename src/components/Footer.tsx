@@ -1,26 +1,9 @@
 import { Camera, Mail, Phone, MapPin, Instagram, Facebook, Youtube, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  "Wedding Drone Photography",
-  "Pre-Wedding Shoots",
-  "Real Estate Aerial",
-  "Corporate Coverage",
-  "Travel & Events",
-];
-
-const quickLinks = [
-  "About Us",
-  "Portfolio",
-  "Pricing",
-  "Blog",
-  "FAQ",
-  "Privacy Policy",
-];
-
+const services = ["Wedding Drone Photography", "Pre-Wedding Shoots", "Real Estate Aerial", "Corporate Coverage", "Travel & Events"];
+const quickLinks = ["About Us", "Portfolio", "Pricing", "Blog", "FAQ", "Privacy Policy"];
 export function Footer() {
-  return (
-    <footer className="bg-tech-dark text-white">
+  return <footer className="bg-tech-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -56,16 +39,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul className="space-y-2">
-              {services.map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
-                    className="text-gray-300 hover:text-primary transition-smooth"
-                  >
+              {services.map(service => <li key={service}>
+                  <a href="#services" className="text-gray-300 hover:text-primary transition-smooth">
                     {service}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -73,16 +51,11 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="text-gray-300 hover:text-primary transition-smooth"
-                  >
+              {quickLinks.map(link => <li key={link}>
+                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-gray-300 hover:text-primary transition-smooth">
                     {link}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -96,7 +69,7 @@ export function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-primary mr-3" />
-                <span className="text-gray-300">hello@droneaura.com</span>
+                <span className="text-gray-300">droneauraofficial@gmail.com</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary mr-3 mt-0.5" />
@@ -108,11 +81,7 @@ export function Footer() {
             </div>
 
             <div className="mt-6">
-              <Button 
-                variant="hero" 
-                className="w-full"
-                onClick={() => window.open('https://wa.me/919716199493', '_blank')}
-              >
+              <Button variant="hero" className="w-full" onClick={() => window.open('https://wa.me/919716199493', '_blank')}>
                 WhatsApp Us
               </Button>
             </div>
@@ -138,6 +107,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
