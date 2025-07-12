@@ -37,7 +37,7 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <Camera className="h-8 w-8 text-primary mr-2 bg-transparent" />
-            <span className="bg-gradient-sky bg-clip-text text-4xl font-extrabold text-pink-600">
+            <span className="bg-gradient-sky bg-clip-text font-extrabold text-4xl text-rose-100">
               DroneAura
             </span>
           </div>
