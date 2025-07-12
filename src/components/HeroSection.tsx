@@ -24,11 +24,7 @@ export function HeroSection() {
           </span>
         </h1>
         
-        <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-          Professional drone photography and videography services for weddings, real estate, 
-          corporate events, and cinematic storytelling. Capture breathtaking aerial perspectives 
-          that transform ordinary moments into extraordinary memories.
-        </p>
+        <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">Professional drone photography and videography services for weddings, real estate, corporate events and cinematic storytelling. Capture breathtaking aerial perspectives that transform your moments into extraordinary memories.</p>
 
         {/* Stats */}
         <div className="flex flex-wrap justify-center gap-8 mb-10">
