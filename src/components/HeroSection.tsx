@@ -1,12 +1,7 @@
 import { ArrowRight, Play, Award, Users, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 export function HeroSection() {
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-hero">
         <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-center opacity-40"></div>
@@ -14,10 +9,12 @@ export function HeroSection() {
 
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 opacity-20">
-        <Camera className="h-16 w-16 text-white float" />
+        
       </div>
       <div className="absolute bottom-32 right-16 opacity-20">
-        <Award className="h-12 w-12 text-white float" style={{ animationDelay: "2s" }} />
+        <Award className="h-12 w-12 text-white float" style={{
+        animationDelay: "2s"
+      }} />
       </div>
 
       {/* Main Content */}
@@ -53,7 +50,9 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="cta" size="xl" className="group" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+          <Button variant="cta" size="xl" className="group" onClick={() => document.getElementById('booking')?.scrollIntoView({
+          behavior: 'smooth'
+        })}>
             Book Your Flight
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -81,6 +80,5 @@ export function HeroSection() {
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
