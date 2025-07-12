@@ -76,9 +76,7 @@ export function TestimonialsSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-gradient-sky text-white px-8 py-3 rounded-lg font-semibold hover:shadow-floating transition-smooth hover:scale-105">Book a Drone Shoot</button>
-              <button className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-smooth">
-                View More Reviews
-              </button>
+              
             </div>
           </div>
         </div>
