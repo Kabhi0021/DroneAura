@@ -12,9 +12,7 @@ export function HeroSection() {
         
       </div>
       <div className="absolute bottom-32 right-16 opacity-20">
-        <Award className="h-12 w-12 text-white float" style={{
-        animationDelay: "2s"
-      }} />
+        
       </div>
 
       {/* Main Content */}
@@ -44,7 +42,7 @@ export function HeroSection() {
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-accent">50+</div>
-            <div className="text-blue-200">Awards</div>
+            <div className="text-blue-200">Pilots</div>
           </div>
         </div>
 
@@ -65,7 +63,7 @@ export function HeroSection() {
 
         {/* Trust Indicators */}
         <div className="mt-12 text-center">
-          <p className="text-blue-200 mb-4">Trusted by leading brands and couples</p>
+          <p className="text-blue-200 mb-4">Trusted by leading brands and videographers</p>
           <div className="flex justify-center items-center space-x-8 opacity-60">
             <Users className="h-8 w-8" />
             <Award className="h-8 w-8" />
@@ -76,9 +74,7 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
-        </div>
+        
       </div>
     </section>;
 }
