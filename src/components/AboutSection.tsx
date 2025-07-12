@@ -1,44 +1,40 @@
 import { Award, Users, Camera, Heart, Target, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const values = [
-  {
-    icon: Heart,
-    title: "Passion-Driven",
-    description: "We're passionate about capturing life's most precious moments from unique aerial perspectives."
-  },
-  {
-    icon: Target,
-    title: "Precision Focus",
-    description: "Every shot is carefully planned and executed with technical precision and artistic vision."
-  },
-  {
-    icon: Zap,
-    title: "Innovation First",
-    description: "We use cutting-edge drone technology and editing techniques to stay ahead of trends."
-  }
-];
-
-const stats = [
-  { number: "500+", label: "Projects Completed" },
-  { number: "1000+", label: "Flying Hours" },
-  { number: "50+", label: "Awards Won" },
-  { number: "99%", label: "Client Satisfaction" }
-];
-
+const values = [{
+  icon: Heart,
+  title: "Passion-Driven",
+  description: "We're passionate about capturing life's most precious moments from unique aerial perspectives."
+}, {
+  icon: Target,
+  title: "Precision Focus",
+  description: "Every shot is carefully planned and executed with technical precision and artistic vision."
+}, {
+  icon: Zap,
+  title: "Innovation First",
+  description: "We use cutting-edge drone technology and editing techniques to stay ahead of trends."
+}];
+const stats = [{
+  number: "500+",
+  label: "Projects Completed"
+}, {
+  number: "1000+",
+  label: "Flying Hours"
+}, {
+  number: "50+",
+  label: "Awards Won"
+}, {
+  number: "99%",
+  label: "Client Satisfaction"
+}];
 export function AboutSection() {
-  return (
-    <section id="about" className="py-20 bg-gradient-to-br from-background to-muted">
+  return <section id="about" className="py-20 bg-gradient-to-br from-background to-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             About <span className="bg-gradient-sky bg-clip-text text-transparent">DroneAura</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Founded with a vision to revolutionize aerial photography in India, DroneAura combines 
-            cutting-edge technology with artistic storytelling to create unforgettable visual experiences.
-          </p>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">Founded with a vision to revolutionize aerial photography in India, DroneAura combines cutting-edge technology with artistic storytelling to create unforgettable memories.</p>
         </div>
 
         {/* Main Content Grid */}
@@ -64,7 +60,9 @@ export function AboutSection() {
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({
+              behavior: 'smooth'
+            })}>
                 Book Your Flight
               </Button>
               <Button variant="outline" size="lg">
@@ -75,11 +73,7 @@ export function AboutSection() {
 
           {/* Image */}
           <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=600&h=500&fit=crop"
-              alt="DroneAura team with professional drone equipment"
-              className="rounded-2xl shadow-floating object-cover w-full h-96"
-            />
+            <img src="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=600&h=500&fit=crop" alt="DroneAura team with professional drone equipment" className="rounded-2xl shadow-floating object-cover w-full h-96" />
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-floating">
               <div className="flex items-center">
                 <Award className="h-8 w-8 text-primary mr-3" />
@@ -96,15 +90,15 @@ export function AboutSection() {
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-center mb-12">Our Values</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div key={value.title} className="text-center animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
+            {values.map((value, index) => <div key={value.title} className="text-center animate-fade-in" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 <div className="bg-gradient-sky w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
                 <h4 className="text-xl font-bold mb-3">{value.title}</h4>
                 <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -114,14 +108,14 @@ export function AboutSection() {
             Trusted by <span className="bg-gradient-sky bg-clip-text text-transparent">Thousands</span>
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={stat.label} className="text-center animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+            {stats.map((stat, index) => <div key={stat.label} className="text-center animate-fade-in" style={{
+            animationDelay: `${index * 100}ms`
+          }}>
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-sky bg-clip-text text-transparent mb-2">
                   {stat.number}
                 </div>
                 <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -135,12 +129,13 @@ export function AboutSection() {
               drone photography accessible to everyone while maintaining the highest standards of 
               safety, creativity, and customer satisfaction.
             </p>
-            <Button variant="cta" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button variant="cta" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({
+            behavior: 'smooth'
+          })}>
               Book Your Flight
             </Button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

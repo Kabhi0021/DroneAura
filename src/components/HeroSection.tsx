@@ -17,7 +17,7 @@ export function HeroSection() {
 
       {/* Main Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-5xl font-bold mb-6 leading-tight md:text-7xl">
           Elevate Your Story
           <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">
             Through the Sky
