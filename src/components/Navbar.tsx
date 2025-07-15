@@ -19,7 +19,7 @@ const navigation = [{
   href: "#testimonials"
 }, {
   name: "Contact",
-  href: "#contact"
+  href: "#booking"
 }];
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

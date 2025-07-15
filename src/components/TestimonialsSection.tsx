@@ -44,7 +44,7 @@ const testimonials = [{
   testimonial: "DroneAura's corporate coverage of our product launch was exceptional. The aerial shots of our facility and event perfectly captured the scale and professionalism of our brand."
 }];
 export function TestimonialsSection() {
-  return <section className="py-20 bg-gradient-to-br from-muted to-background">
+  return <section id="testimonials" className="py-20 bg-gradient-to-br from-muted to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
