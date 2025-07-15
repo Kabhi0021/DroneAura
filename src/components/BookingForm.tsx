@@ -32,7 +32,10 @@ const shootTypes = [
 const cities = [
   "Delhi",
   "Gurgaon", 
-  "Noida"
+  "Noida",
+  "Faridabad",
+  "Meerut",
+  "Manesar"
 ];
 
 export function BookingForm() {
@@ -77,7 +80,7 @@ Looking forward to working with you!`;
     window.open(whatsappUrl, '_blank');
 
     toast({
-      title: "Redirecting to WhatsApp",
+      title: "Contacting DroneAuara on WhatsApp",
       description: "Please send the pre-filled message to complete your booking request.",
     });
   };
@@ -315,7 +318,7 @@ Looking forward to working with you!`;
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
-                hello@droneaura.com
+                droneauraofficial@gmail.com
               </div>
               <div className="flex items-center">
                 <MessageSquare className="h-4 w-4 mr-2 text-primary" />
