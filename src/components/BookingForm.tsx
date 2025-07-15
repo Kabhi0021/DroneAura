@@ -57,15 +57,15 @@ export function BookingForm() {
 
     // Gather form values
   const bookingData = {
-    name,
-    email,
-    phone,
-    shootType,
-    dates,       // if this is an array, Apps Script handles it
-    city,
-    address,
-    pincode,
-    message,
+  name: formData.name,
+  email: formData.email,
+  phone: formData.phone,
+  shootType: formData.shootType,
+  dates: formData.dates,
+  city: formData.city,
+  address: formData.address,
+  pincode: formData.pincode,
+  message: formData.message,
   };
 
   // 1. Send data to Google Sheet via Apps Script
