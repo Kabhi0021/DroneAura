@@ -26,7 +26,7 @@ const shootTypes = [
   "Corporate Event",
   "Travel & Tourism",
   "Cinematic Production",
-  "Other (Please specify)"
+  "Other (Please specify in Addtional Details field)"
 ];
 
 const cities = [
@@ -54,25 +54,48 @@ export function BookingForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Gather form values
+  const bookingData = {
+    name,
+    email,
+    phone,
+    shootType,
+    dates,       // if this is an array, Apps Script handles it
+    city,
+    address,
+    pincode,
+    message,
+  };
+
+  // 1. Send data to Google Sheet via Apps Script
+  fetch('https://script.google.com/macros/s/AKfycbxP4fxgHSFoIyo2M_rwvqMZOklUMh12zQdinR8-aNv1FCQvsotfIWKqjkcs4ZvNpYD5-w/exec', {
+    method: 'POST',
+    mode: 'no-cors', // Allows request to succeed without CORS errors
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(bookingData),
+  });
     
-    // Create WhatsApp message
+    // 2. Create WhatsApp message
     const datesText = formData.dates.length > 0 
-      ? formData.dates.map(date => format(date, "PPP")).join(", ")
+      ? formData.dates.map(date => format(date, "PPP")).join(",  ")
       : "Not specified";
     
     const whatsappMessage = `Hi DroneAura! I'd like to book a drone shoot.
 
 📋 Booking Details:
-• Name: ${formData.name}
-• Email: ${formData.email}
-• Phone: ${formData.phone}
-• Service: ${formData.shootType}
-• Preferred Dates: ${datesText}
-• City: ${formData.city}
-• Address: ${formData.address}
-• PIN Code: ${formData.pincode}
+*• Name:* ${formData.name}
+*• Email:* ${formData.email}
+*• Phone:* ${formData.phone}
+*• Service:* ${formData.shootType}
+*• Preferred Dates:* ${datesText}
+*• City:* ${formData.city}
+*• Address:* ${formData.address}
+*• PIN Code:* ${formData.pincode}
 
-💬 Message: ${formData.message}
+💬 *Message:* ${formData.message}
 
 Looking forward to working with you!`;
 
