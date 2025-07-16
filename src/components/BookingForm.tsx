@@ -52,8 +52,11 @@ export function BookingForm() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+      // Convert dates to string format for Google Sheet
+  const formattedDates = formData.dates.map(date => format(date, "dd/MM/YYY"));
 
     // Gather form values
   const bookingData = {
@@ -61,7 +64,7 @@ export function BookingForm() {
   email: formData.email,
   phone: formData.phone,
   shootType: formData.shootType,
-  dates: formData.dates,
+  dates: formattedDates,
   city: formData.city,
   address: formData.address,
   pincode: formData.pincode,
@@ -69,7 +72,7 @@ export function BookingForm() {
   };
 
   // 1. Send data to Google Sheet via Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbwrntLrySJXDiv8S2HpTDx26HmEc_25R38PzzoSXBmr4_USb4trvIBS5yIigl8AQY78IA/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzexbgUw45oqdLDVWKjBfBLpbGil06q_KJ02E3t3mRGb0eSaKfd57pukQ2WBZdeqbYMYw/exec', {
     method: 'POST',
     mode: 'no-cors', // Allows request to succeed without CORS errors
     headers: {
