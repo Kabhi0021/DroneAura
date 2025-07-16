@@ -72,7 +72,7 @@ export function BookingForm() {
   };
 
   // 1. Send data to Google Sheet via Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbzexbgUw45oqdLDVWKjBfBLpbGil06q_KJ02E3t3mRGb0eSaKfd57pukQ2WBZdeqbYMYw/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzDXAl6HcnJZgNg7MI-UrDTEsILrhwsHwlv2R40QAcZnISFDuBMoMISjtocKsqVMTLnxg/exec', {
     method: 'POST',
     mode: 'no-cors', // Allows request to succeed without CORS errors
     headers: {
