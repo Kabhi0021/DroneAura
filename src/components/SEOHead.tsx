@@ -12,24 +12,26 @@ export function SEOHead() {
           "name": "DroneAura",
           "description": "Professional drone photography and videography services for weddings, real estate, corporate events, and cinematic coverage across India.",
           "url": "https://droneaura.com",
-          "telephone": "+91-98765-43210",
-          "email": "hello@droneaura.com",
+          "telephone": "+91-97161-99493",
+          "email": "droneaura@gmail.com",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Near Maharaja Agrasen",
             "addressLocality": "New Delhi",
+            "postalCode": "110075",
             "addressCountry": "IN"
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "28.6139",
-            "longitude": "77.2090"
+            "latitude": "28.6011",
+            "longitude": "77.0600"
           },
           "priceRange": "₹₹",
           "image": "https://droneaura.com/images/logo.png",
           "sameAs": [
-            "https://instagram.com/droneaura",
-            "https://facebook.com/droneaura",
-            "https://youtube.com/droneaura"
+            "https://instagram.com/droneaura_official",
+            "https://facebook.com/droneaura_official",
+            "https://youtube.com/droneaura_official"
           ],
           "aggregateRating": {
             "@type": "AggregateRating",
@@ -52,19 +54,19 @@ export function SEOHead() {
               {
                 "@type": "Offer",
                 "name": "Wedding Drone Photography",
-                "price": "25000",
+                "price": "3499",
                 "priceCurrency": "INR"
               },
               {
                 "@type": "Offer",
                 "name": "Pre-Wedding Shoots",
-                "price": "15000",
+                "price": "2499",
                 "priceCurrency": "INR"
               },
               {
                 "@type": "Offer",
                 "name": "Real Estate Aerial Photography",
-                "price": "8000",
+                "price": "2499",
                 "priceCurrency": "INR"
               }
             ]
@@ -87,7 +89,7 @@ export function SEOHead() {
               "name": "What is the cost of drone photography for weddings?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Wedding drone photography packages start from ₹25,000 and vary based on duration, locations, and deliverables included."
+                "text": "Wedding drone photography packages start from ₹3,499 and vary based on duration, locations, and deliverables included."
               }
             }
           ]

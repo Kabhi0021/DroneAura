@@ -36,11 +36,13 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Camera className="h-8 w-8 text-primary mr-2 bg-transparent" />
-            <span className="bg-gradient-sky bg-clip-text font-extrabold text-4xl text-rose-100">
-              DroneAura
-            </span>
-          </div>
+  <img src="/DA Logo.png" alt="Drone Aura Logo" className="h-10 w-10 mr-2 rounded-full object-contain shadow" />
+<span className="font-bold text-2xl tracking-wider" style={{ fontFamily: "'Lato', Arial, sans-serif" }}>
+  <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
+  <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
+</span>
+
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
