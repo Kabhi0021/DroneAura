@@ -49,16 +49,16 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-199",
+        "fixed top-0 w-full z-50 transition-all duration-500",
         isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-soft"
           : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-start items-center min-h-[4rem] md:min-h-[5rem]">
+        <div className="flex justify-between items-center min-h-[4rem] md:min-h-[5rem]">
           {/* Logo and Brand Left */}
-          <div className="flex items-center space-x-3 min-w-[280px]">
+          <div className="flex items-center space-x-3 min-w-[280px] ml-0">
             <img
               src="/logo.png"
               alt="Drone Aura Logo"
@@ -69,7 +69,7 @@ export function Navbar() {
               className="font-extrabold text-3xl md:text-4xl tracking-wider"
               style={{ fontFamily: "'Montserrat', Arial, sans-serif", minHeight: '2rem', display: 'flex', alignItems: 'center' }}
             >
-              <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
+              <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE&nbsp;</span>
               <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
             </span>
           </div>
@@ -77,25 +77,38 @@ export function Navbar() {
           {/* Nav Links */}
           <div className="hidden md:flex items-center ml-10 space-x-8">
             {navigation.map(item => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  linkBase,
-                  linkDefault,
-                  linkHover,
-                  active === item.href ? linkActive : ""
-                )}
-                style={{ fontFamily: "'Montserrat', Arial, sans-serif" }}
-                onClick={() => setActive(item.href)}
-              >
-                {item.name}
-              </a>
-            ))}
+  <a
+    key={item.name}
+    href={item.href}
+    className={cn(
+      linkBase,
+      linkDefault,
+      linkHover,
+      active === item.href ? linkActive : ""
+    )}
+    style={{ fontFamily: "'Montserrat', Arial, sans-serif", cursor: "pointer" }}
+    onClick={(e) => {
+      e.preventDefault();
+      setActive(item.href);
+      const targetSection = document.querySelector(item.href);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      if (item.name === "Home") {
+        // Scroll to top explicitly when Home clicked
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => setIsScrolled(false), 250); // soft smooth transition
+      }
+    }}
+  >
+    {item.name}
+  </a>
+))}
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center ml-10">
+          <div className="hidden md:flex items-center ml-auto">
             <Button
               variant="hero"
               size="lg"
