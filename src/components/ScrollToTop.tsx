@@ -32,7 +32,7 @@ export function ScrollToTop() {
       variant="hero"
       size="icon"
       className={cn(
-        "fixed bottom-20 right-4 z-60 shadow-floating transition-all duration-300",
+        "fixed bottom-25 right-4 z-60 shadow-floating transition-all duration-300",
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-16 pointer-events-none"

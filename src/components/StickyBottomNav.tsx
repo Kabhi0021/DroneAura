@@ -38,7 +38,7 @@ export function StickyBottomNav() {
           <Button 
             variant="hero" 
             size="lg" 
-            className="flex-1 text-sm"
+            className="flex-1 text-base h-14"
             onClick={handleBookFlight}
           >
             <Phone className="h-4 w-4 mr-2" />
@@ -47,7 +47,7 @@ export function StickyBottomNav() {
           <Button 
             variant="outline" 
             size="lg" 
-            className="flex-1 text-sm border-primary text-primary hover:bg-primary hover:text-white"
+            className="flex-1 text-base h-14 border-primary text-primary hover:bg-primary hover:text-white"
             onClick={handleCustomQuote}
           >
             <MessageSquare className="h-4 w-4 mr-2" />
