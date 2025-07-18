@@ -32,17 +32,25 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return <nav className={cn("fixed top-0 w-full z-50 transition-smooth", isScrolled ? "bg-white/90 backdrop-blur-md shadow-soft" : "bg-transparent")}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-  <img src="/DA Logo.png" alt="Drone Aura Logo" className="h-30 w-30 mr-4 rounded-full object-contain shadow" />
-<span className="font-bold text-6xl tracking-wider" style={{ fontFamily: "'Lato', Arial, sans-serif" }}>
-  <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
-  <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
-</span>
-
+      <div className="flex items-center">
+  <img
+    src="/DA Logo.png"
+    alt="Drone Aura Logo"
+    className="h-20 w-20 md:h-32 md:w-32 mr-4 rounded-full object-contain shadow"
+  />
+  <span
+    className="font-extrabold text-4xl md:text-7xl tracking-wider"
+    style={{ fontFamily: "'Lato', Arial, sans-serif" }}
+  >
+    <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">
+      DRONE
+    </span>
+    <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+      AURA
+    </span>
+  </span>
 </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
