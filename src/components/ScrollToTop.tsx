@@ -32,7 +32,9 @@ export function ScrollToTop() {
   variant="hero"
   size="icon"
   className={cn(
-    "fixed right-4 z-[70] shadow-floating transition-all duration-300 bottom-[calc(4.5rem+1.5rem)] md:bottom-12",
+    "fixed z-[70] shadow-floating transition-all duration-300 right-4",
+    // Y position: mobile above sticky, desktop above floating sticky
+    "bottom-[5.5rem] md:bottom-[8.5rem]",
     isVisible
       ? "opacity-100 translate-y-0"
       : "opacity-0 translate-y-16 pointer-events-none"
