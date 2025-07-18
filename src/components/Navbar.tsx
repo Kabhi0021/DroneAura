@@ -33,45 +33,49 @@ export function Navbar() {
   }, []);
   return <nav className={cn("fixed top-0 w-full z-50 transition-smooth", isScrolled ? "bg-white/90 backdrop-blur-md shadow-soft" : "bg-transparent")}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center min-h-[4.5rem] md:min-h-[6rem]">
           {/* Logo */}
-          <div className="flex items-right">
+          <div className="flex items-center space-x-3">
   <img
     src="/logo.png"
     alt="Drone Aura Logo"
-    className="h-20 w-20 md:h-32 md:w-32 mr-4"
+    className="h-15 w-15 md:h-25 md:w-25"
+    style={{ minWidth: "3rem", minHeight: "3rem" }}
   />
   <span
-    className="font-extrabold text-2xl md:text-4xl tracking-wider"
+    className="font-extrabold text-xl md:text-3xl lg:text-4xl tracking-wider"
     style={{ fontFamily: "'Lato', Arial, sans-serif" }}
   >
-    <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">
-      DRONE
-    </span>
-    <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-      AURA
-    </span>
+    <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
+    <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
   </span>
 </div>
 
-
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navigation.map(item => <a key={item.name} href={item.href} className="text-foreground hover:text-primary transition-smooth font-medium">
-                  {item.name}
-                </a>)}
-            </div>
-          </div>
+<div className="hidden md:flex items-center ml-8 space-x-8">
+  {navigation.map(item => (
+    <a
+      key={item.name}
+      href={item.href}
+      className="text-foreground hover:text-primary transition-smooth font-medium"
+    >
+      {item.name}
+    </a>
+  ))}
+</div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="hero" size="lg" onClick={() => document.getElementById('booking')?.scrollIntoView({
-            behavior: 'smooth'
-          })}>
-              Book Your Flight
-            </Button>
-          </div>
+          <div className="hidden md:flex items-center ml-8">
+  <Button
+    variant="hero"
+    size="lg"
+    onClick={() =>
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  >
+    Book Your Flight
+  </Button>
+</div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
