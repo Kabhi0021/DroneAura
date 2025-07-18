@@ -4,7 +4,7 @@ export function HeroSection() {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
 
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-[#47341f]/40">
+      <div className="absolute inset-0 bg-[#231a10]/40">
         <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-center opacity-40"></div>
       </div>
 
