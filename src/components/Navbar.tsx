@@ -53,6 +53,7 @@ export function Navbar() {
         isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-soft"
           : "bg-transparent"
+        
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,37 +76,35 @@ export function Navbar() {
           </div>
 
           {/* Nav Links */}
-          <div className="hidden md:flex items-center ml-10 space-x-8">
-            {navigation.map(item => (
-  <a
-    key={item.name}
-    href={item.href}
-    className={cn(
-      linkBase,
-      linkDefault,
-      linkHover,
-      active === item.href ? linkActive : ""
-    )}
-    style={{ fontFamily: "'Montserrat', Arial, sans-serif", cursor: "pointer" }}
-    onClick={(e) => {
-      e.preventDefault();
-      setActive(item.href);
-      const targetSection = document.querySelector(item.href);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-      }
+          <div className="hidden md:flex items-center mx-auto space-x-4">
+  {navigation.map(item => (
+    <a
+      key={item.name}
+      href={item.href}
+      className={cn(
+        linkBase,
+        linkDefault,
+        linkHover,
+        active === item.href ? linkActive : ""
+      )}
+      style={{ fontFamily: "'Montserrat', Arial, sans-serif", cursor: "pointer" }}
+      onClick={(e) => {
+        e.preventDefault();
+        setActive(item.href);
 
-      if (item.name === "Home") {
-        // Scroll to top explicitly when Home clicked
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => setIsScrolled(false), 250); // soft smooth transition
-      }
-    }}
-  >
-    {item.name}
-  </a>
-))}
-          </div>
+        if (item.name === "Home") {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          setIsScrolled(false);  // Immediately trigger blur transition like scroll
+        } else {
+          document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}
+    >
+      {item.name}
+    </a>
+  ))}
+</div>
+
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center ml-auto">
