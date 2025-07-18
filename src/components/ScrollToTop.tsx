@@ -34,7 +34,7 @@ export function ScrollToTop() {
   className={cn(
     "fixed z-[70] shadow-floating transition-all duration-300 right-4",
     // Y position: mobile above sticky, desktop above floating sticky
-    "bottom-[7rem] md:bottom-[10rem]",
+    "bottom-[10rem] md:bottom-[13rem]",
     isVisible
       ? "opacity-100 translate-y-0"
       : "opacity-0 translate-y-16 pointer-events-none"
