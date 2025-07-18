@@ -42,10 +42,10 @@ export function Navbar() {
         <img
           src="/logo.png"
           alt="Drone Aura Logo"
-          className="h-11 w-11 md:h-20 md:w-20 object-contain"
+          className="h-15 w-15 md:h-20 md:w-20 object-contain"
         />
         <span
-          className="font-extrabold text-4xl md:text-6xl lg:text-6xl tracking-wider"
+          className="font-extrabold text-6xl md:text-8xl lg:text-8xl tracking-wider"
           style={{ fontFamily: "'Lato', Arial, sans-serif" }}
         >
           <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
