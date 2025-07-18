@@ -29,9 +29,12 @@ export function StickyBottomNav() {
   return (
     <div
       className={cn(
-        "fixed bottom-0 left-0 right-0 z-50 transition-transform duration-300 md:hidden",
-        isVisible ? "translate-y-0" : "translate-y-full"
-      )}
+  "fixed bottom-44 md:bottom-12 right-4 z-[60] shadow-floating transition-all duration-300",
+  isVisible
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-16 pointer-events-none"
+)}
+
     >
       <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-floating px-4 py-3">
         <div className="flex flex-col xs:flex-row gap-3 max-w-sm mx-auto">
