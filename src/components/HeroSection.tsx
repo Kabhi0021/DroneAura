@@ -4,8 +4,8 @@ export function HeroSection() {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
 
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-[#120d08]/45">
-        <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-center opacity-45"></div>
+      <div className="absolute inset-0 bg-[#120d08]/55">
+        <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-center opacity-55"></div>
       </div>
 
       {/* Floating Elements */}
@@ -23,21 +23,21 @@ export function HeroSection() {
           <span className="block bg-gradient-to-r from-blue-200 to-cyan-200 bg-clip-text text-transparent">From The Sky</span>
         </h1>
         
-        <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">Professional drone photography and videography services for weddings, real estate, corporate events and cinematic storytelling. Capture breathtaking aerial perspectives that transform your moments into extraordinary memories.</p>
+        <p className="text-xl md:text-2xl mb-8 text-white max-w-3xl mx-auto leading-relaxed">Professional drone photography and videography services for weddings, real estate, corporate events and cinematic storytelling. Capture breathtaking aerial perspectives that transform your moments into extraordinary memories.</p>
 
         {/* Stats */}
         <div className="flex flex-wrap justify-center gap-8 mb-10">
           <div className="text-center">
             <div className="text-3xl font-bold text-accent">500+</div>
-            <div className="text-blue-200">Happy Clients</div>
+            <div className="text-white">Happy Clients</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-accent">1000+</div>
-            <div className="text-blue-200">Aerial Shoots</div>
+            <div className="text-white">Aerial Shoots</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-accent">50+</div>
-            <div className="text-blue-200">Pilots</div>
+            <div className="text-white">Pilots</div>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export function HeroSection() {
 
         {/* Trust Indicators */}
         <div className="mt-12 text-center">
-          <p className="text-blue-200 mb-4">Trusted by leading brands and videographers</p>
+          <p className="text-white mb-4">Trusted by leading brands and videographers</p>
           <div className="flex justify-center items-center space-x-8 opacity-60">
             <Users className="h-8 w-8" />
             <Award className="h-8 w-8" />

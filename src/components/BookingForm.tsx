@@ -86,27 +86,27 @@ export function BookingForm() {
       ? formData.dates.map(date => format(date, "PPP")).join(",  ")
       : "Not specified";
     
-    const whatsappMessage = `Hi DroneAura! I'd like to book a drone shoot.
+    const whatsappMessage = `Hi Drone Aura! I'd like to book a drone shoot.
 
 📋 Booking Details:
-*• Name:* ${formData.name}
-*• Email:* ${formData.email}
-*• Phone:* ${formData.phone}
-*• Service:* ${formData.shootType}
-*• Preferred Dates:* ${datesText}
-*• City:* ${formData.city}
-*• Address:* ${formData.address}
-*• PIN Code:* ${formData.pincode}
+*1. Name:* ${formData.name}
+*2. Email:* ${formData.email}
+*3. Phone:* ${formData.phone}
+*4. Service:* ${formData.shootType}
+*5. Preferred Dates:* ${datesText}
+*6. City:* ${formData.city}
+*7. Address:* ${formData.address}
+*8. PIN Code:* ${formData.pincode}
 
-💬 *Message:* ${formData.message}
+💬 *9. Additional Details (Message):* ${formData.message}
 
-Looking forward to working with you!`;
+Please connect back to discuss the requirement`;
 
     const whatsappUrl = `https://wa.me/919716199493?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
 
     toast({
-      title: "Contacting DroneAuara on WhatsApp",
+      title: "Contacting Drone Auara on WhatsApp",
       description: "Please send the pre-filled message to complete your booking request.",
     });
   };

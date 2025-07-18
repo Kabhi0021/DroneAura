@@ -21,7 +21,7 @@ export function StickyBottomNav() {
   };
 
   const handleCustomQuote = () => {
-    const whatsappMessage = `Hi DroneAura! I'd like to get a custom quote for my project. Please contact me to discuss the details.`;
+    const whatsappMessage = `Hi Drone Aura! I'd like to get a custom request for my project. Please contact me urgently to discuss the details.`;
     const whatsappUrl = `https://wa.me/919716199493?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -34,7 +34,7 @@ export function StickyBottomNav() {
       )}
     >
       <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-floating px-4 py-3">
-        <div className="flex gap-3 max-w-sm mx-auto">
+        <div className="flex flex-col xs:flex-row gap-3 max-w-sm mx-auto">
           <Button 
             variant="hero" 
             size="lg" 
@@ -51,7 +51,7 @@ export function StickyBottomNav() {
             onClick={handleCustomQuote}
           >
             <MessageSquare className="h-4 w-4 mr-2" />
-            Custom Quote
+            Custom Request
           </Button>
         </div>
       </div>
