@@ -49,7 +49,7 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-smooth",
+        "fixed top-0 w-full z-50 transition-all duration-199",
         isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-soft"
           : "bg-transparent"
@@ -58,15 +58,15 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-start items-center min-h-[4rem] md:min-h-[5rem]">
           {/* Logo and Brand Left */}
-          <div className="flex items-center space-x-2 min-w-[320px]">
+          <div className="flex items-center space-x-3 min-w-[280px]">
             <img
               src="/logo.png"
               alt="Drone Aura Logo"
-              className="h-10 w-10 md:h-11 md:w-11 object-contain"
-              style={{ minWidth: '2rem', minHeight: '2rem' }}
+              className="h-10 w-10 md:h-14 md:w-14 object-contain"
+              style={{ minWidth: '2.5rem', minHeight: '2.5rem' }}
             />
             <span
-              className="font-extrabold text-4xl md:text-5xl tracking-wider"
+              className="font-extrabold text-3xl md:text-4xl tracking-wider"
               style={{ fontFamily: "'Montserrat', Arial, sans-serif", minHeight: '2rem', display: 'flex', alignItems: 'center' }}
             >
               <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
