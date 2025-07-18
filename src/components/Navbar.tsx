@@ -1,110 +1,148 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Camera } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-const navigation = [{
-  name: "Home",
-  href: "#home"
-}, {
-  name: "About",
-  href: "#about"
-}, {
-  name: "Services",
-  href: "#services"
-}, {
-  name: "Portfolio",
-  href: "#portfolio"
-}, {
-  name: "Testimonials",
-  href: "#testimonials"
-}, {
-  name: "Contact",
-  href: "#booking"
-}];
+
+const navigation = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Portfolio", href: "#portfolio" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#booking" }
+];
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Set active nav based on URL hash
+    const setActiveNav = () => {
+      setActive(window.location.hash || "#home");
+    };
+    setActiveNav();
+    window.addEventListener("hashchange", setActiveNav);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", setActiveNav);
+    };
   }, []);
-  return <nav className={cn(
-  "fixed top-0 w-full z-50 transition-smooth",
-  isScrolled ? "bg-white/90 backdrop-blur-md shadow-soft" : "bg-transparent"
-)}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-left items-center min-h-[5.5rem] md:min-h-[7rem]"> 
-      {/* Logo + Text */}
-      <div className="flex items-center space-x-4">
-        <img
-          src="/logo.png"
-          alt="Drone Aura Logo"
-          className="h-12 w-12 md:h-15 md:w-15 object-contain"
-        />
-        <span
-          className="font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-wider"
-          style={{ fontFamily: "'Lato', Arial, sans-serif" }}
-        >
-          <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
-          <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
-        </span>
-      </div>
 
-      {/* Nav Links */}
-      <div className="hidden md:flex items-center ml-8 space-x-10">
-        {navigation.map(item => (
-          <a
-            key={item.name}
-            href={item.href}
-            className="text-lg font-medium text-foreground hover:text-primary transition-smooth"
-          >
-            {item.name}
-          </a>
-        ))}
-      </div>
+  // Custom link style
+  const linkBase =
+    "text-lg font-medium px-2 transition-smooth";
+  const linkDefault =
+    "text-[#0dc1da] font-montserrat";
+  const linkHover =
+    "hover:text-[#fea610]";
+  const linkActive =
+    "text-[#f88039] font-bold";
 
-      {/* CTA Button */}
-      <div className="hidden md:flex items-center ml-8">
-        <Button
-          variant="hero"
-          size="lg"
-          onClick={() =>
-            document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
-          }
-        >
-          Book Your Flight
-        </Button>
-      </div>
+  return (
+    <nav
+      className={cn(
+        "fixed top-0 w-full z-50 transition-smooth",
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-soft"
+          : "bg-transparent"
+      )}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center min-h-[4rem] md:min-h-[5rem]">
+          {/* Logo and Brand Left */}
+          <div className="flex items-center space-x-2 min-w-[320px]">
+            <img
+              src="/logo.png"
+              alt="Drone Aura Logo"
+              className="h-13 w-13 md:h-15 md:w-15 object-contain"
+              style={{ minWidth: '2rem', minHeight: '2rem' }}
+            />
+            <span
+              className="font-extrabold text-4xl md:text-2xl tracking-wider"
+              style={{ fontFamily: "'Montserrat', Arial, sans-serif", minHeight: '2rem', display: 'flex', alignItems: 'center' }}
+            >
+              <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">DRONE</span>
+              <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">AURA</span>
+            </span>
+          </div>
 
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
-      </div>
-    </div>
-  </div>
+          {/* Nav Links */}
+          <div className="hidden md:flex items-center ml-10 space-x-8">
+            {navigation.map(item => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  linkBase,
+                  linkDefault,
+                  linkHover,
+                  active === item.href ? linkActive : ""
+                )}
+                style={{ fontFamily: "'Montserrat', Arial, sans-serif" }}
+                onClick={() => setActive(item.href)}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
 
-  {/* Mobile Navigation */}
-  {isOpen && (
-    <div className="md:hidden">
-      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md shadow-soft">
-        {navigation.map(item => (
-          <a key={item.name} href={item.href} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary transition-smooth" onClick={() => setIsOpen(false)}>
-            {item.name}
-          </a>
-        ))}
-        <div className="px-3 py-2">
-          <Button variant="hero" className="w-full" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
-            Book Your Flight
-          </Button>
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center ml-10">
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={() =>
+                document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Book Your Flight
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
-  )}
-</nav>;
 
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md shadow-soft">
+            {navigation.map(item => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "block px-3 py-2 text-base font-medium transition-smooth",
+                  "text-[#0dc1da] font-montserrat hover:text-[#fea610]",
+                  active === item.href ? "text-[#f88039] font-bold" : ""
+                )}
+                style={{ fontFamily: "'Montserrat', Arial, sans-serif" }}
+                onClick={() => { setIsOpen(false); setActive(item.href); }}
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="px-3 py-2">
+              <Button variant="hero" className="w-full" onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+                Book Your Flight
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 }
