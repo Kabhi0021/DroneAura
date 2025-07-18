@@ -37,7 +37,8 @@ export function StickyBottomNav() {
       : "opacity-0 translate-y-full pointer-events-none"
   )}
 >
-  <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-floating px-4 py-3 rounded-2xl">
+  <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-[0_-8px_24px_0_rgba(0,0,0,0.17)] px-4 py-3 rounded-2xl">
+
 
     <div className="flex flex-col xs:flex-row gap-3 max-w-sm mx-auto">
       <Button
