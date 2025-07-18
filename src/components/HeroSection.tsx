@@ -5,7 +5,8 @@ export function HeroSection() {
 
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-[#120d08]/45">
-        <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute inset-0 bg-[url('/src/assets/hero-drone.jpg')] bg-cover bg-[center_55%] bg-no-repeat opacity-30"></div>
+
       </div>
 
       {/* Floating Elements */}

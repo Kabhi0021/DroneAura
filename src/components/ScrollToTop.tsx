@@ -28,17 +28,18 @@ export function ScrollToTop() {
 
   return (
     <Button
-      onClick={scrollToTop}
-      variant="hero"
-      size="icon"
-      className={cn(
-        "fixed bottom-25 right-4 z-60 shadow-floating transition-all duration-300",
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-16 pointer-events-none"
-      )}
-    >
-      <ArrowUp className="h-5 w-5" />
-    </Button>
+  onClick={scrollToTop}
+  variant="hero"
+  size="icon"
+  className={cn(
+    "fixed bottom-32 right-4 z-[60] shadow-floating transition-all duration-300",
+    isVisible
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 translate-y-16 pointer-events-none"
+  )}
+>
+  <ArrowUp className="h-5 w-5" />
+</Button>
+
   );
 }

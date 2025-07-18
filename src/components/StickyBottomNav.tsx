@@ -35,25 +35,26 @@ export function StickyBottomNav() {
     >
       <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-floating px-4 py-3">
         <div className="flex flex-col xs:flex-row gap-3 max-w-sm mx-auto">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="flex-1 text-base h-14"
-            onClick={handleBookFlight}
-          >
-            <Phone className="h-4 w-4 mr-2" />
-            Book Your Flight
-          </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="flex-1 text-base h-14 border-primary text-primary hover:bg-primary hover:text-white"
-            onClick={handleCustomQuote}
-          >
-            <MessageSquare className="h-4 w-4 mr-2" />
-            Custom Request
-          </Button>
-        </div>
+  <Button 
+    variant="hero" 
+    size="lg" 
+    className="flex-1 text-base !h-14 !min-h-[56px] !py-4"
+    onClick={handleBookFlight}
+  >
+    <Phone className="h-4 w-4 mr-2" />
+    Book Your Flight
+  </Button>
+  <Button 
+    variant="outline" 
+    size="lg" 
+    className="flex-1 text-base !h-14 !min-h-[56px] !py-4 border-primary text-primary hover:bg-primary hover:text-white"
+    onClick={handleCustomQuote}
+  >
+    <MessageSquare className="h-4 w-4 mr-2" />
+    Custom Request
+  </Button>
+</div>
+
       </div>
     </div>
   );
