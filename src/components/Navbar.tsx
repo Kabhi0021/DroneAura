@@ -32,14 +32,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return <nav className={cn("fixed top-0 w-full z-50 transition-smooth", isScrolled ? "bg-white/90 backdrop-blur-md shadow-soft" : "bg-transparent")}>
-      <div className="flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-right">
   <img
-    src="/DA Logo.png"
+    src="/logo.png"
     alt="Drone Aura Logo"
-    className="h-20 w-20 md:h-32 md:w-32 mr-4 rounded-full object-contain shadow"
+    className="h-20 w-20 md:h-32 md:w-32 mr-4"
   />
   <span
-    className="font-extrabold text-4xl md:text-7xl tracking-wider"
+    className="font-extrabold text-2xl md:text-4xl tracking-wider"
     style={{ fontFamily: "'Lato', Arial, sans-serif" }}
   >
     <span className="bg-gradient-to-r from-sky-400 to-sky-400 bg-clip-text text-transparent">
