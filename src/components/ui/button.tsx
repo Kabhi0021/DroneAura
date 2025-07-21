@@ -6,24 +6,23 @@ import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap",
-    "transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 shadow-md",
+    //"transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
     "rounded-full", // Always fully rounded!
     "py-3 px-8 text-base", // Consistent pill shape
   ].join(" "),
   {
     variants: {
       variant: {
-        default: "[background:linear-gradient(90deg,#e4acec_0%,#ea56c7_35%,#ec6ad4_65%,#e4acec_100%)] text-white font-medium shadow-md hover:brightness-105 active:scale-95", // Pink glossy
+        default: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-105 active:scale-95", // Pink glossy
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "[background:linear-gradient(90deg,#e4acec_0%,#ea56c7_35%,#ec6ad4_65%,#e4acec_100%)] text-white font-medium shadow-md hover:brightness-105 active:scale-105 ",
+        hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-105 active:scale-105 ",
         cta: "bg-gradient-maroon text-white hover:bg-gradient-to-r hover:from-maroon hover:to-red-700 shadow-floating hover:shadow-deep hover:scale-105",
         glass: "bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 shadow-soft",
         clicked: 
