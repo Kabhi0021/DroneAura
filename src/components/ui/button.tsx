@@ -14,7 +14,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-105 active:scale-95", // Pink glossy
+        default: "",
+        clicked: "",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
 
@@ -22,18 +23,14 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-105 active:scale-105 ",
-        cta: "bg-gradient-maroon text-white hover:bg-gradient-to-r hover:from-maroon hover:to-red-700 shadow-floating hover:shadow-deep hover:scale-105",
-        glass: "bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 shadow-soft",
-        clicked: 
-          "[background:linear-gradient(90deg,#c6f7f7_0%,#8ee7fa_24%,#1992ff_60%,#0a2dce_100%)] text-white font-bold shadow-lg", // Blue gradient
-        outline: 
-          "bg-transparent border-2 border-[#ad44e6] text-[#ad44e6] font-bold hover:bg-[#f8f5fe]", // Outline purple
-        outlineClicked: 
-          "[background:linear-gradient(90deg,#c6f7f7_0%,#8ee7fa_24%,#1992ff_60%,#0a2dce_100%)] text-white font-bold border-0 shadow-lg", // Blue outline pressed  
+        hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-120 active:scale-105 ", //Pink gradient
+        cta: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-120 active:scale-105", //Pink gradient
+        glass: "bg-white/10 backdrop-blur-md text-white border border-white/50 hover:bg-white/20 shadow-soft",
+        outline: "",
+        outlineClicked: "",
       },
       size: {
-                default: "", // pill by default
+        default: "", // pill by default
         sm: "py-2 px-5 text-sm",
         lg: "py-4 px-10 text-lg",
         xl: "h-14 rounded-lg px-10 text-base font-semibold",
@@ -53,18 +50,79 @@ export interface ButtonProps
   asChild?: boolean
 }
 
+// Utility to handle gradient border with active/clicked support
+const useOutlineActive = () => {
+  const [pressed, setPressed] = React.useState(false)
+  return {
+    pressed,
+    eventProps: {
+      onMouseDown: () => setPressed(true),
+      onMouseUp: () => setPressed(false),
+      onMouseLeave: () => setPressed(false),
+      onTouchStart: () => setPressed(true),
+      onTouchEnd: () => setPressed(false),
+    }
+  }
+}
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    const { pressed, eventProps } = usePressed()
+
+    // Gradient filled (default/hero/cta) — wrapper to swap pink to blue on press
+    if (["default", "hero", "cta"].includes(variant || "")) {
+      const isClicked = pressed
+      const fillWrapperClass = isClicked
+        ? "gradient-fill-blue"
+        : "gradient-fill-pink"
+      return (
+        <span className={fillWrapperClass} style={{ display: "inline-block" }}>
+          <Comp
+            ref={ref}
+            className={cn("btn-fill-content", className)}
+            {...props}
+            {...eventProps}
+          >
+            {children}
+          </Comp>
+        </span>
+      )
+    }
+
+    // Gradient outline and outlineClicked
+    if (variant === "outline" || variant === "outlineClicked") {
+      const isClicked = variant === "outlineClicked" || pressed
+      const outlineClass = isClicked
+        ? "gradient-outline-clicked"
+        : "gradient-outline"
+      return (
+        <span className={outlineClass} style={{ display: "inline-block" }}>
+          <Comp
+            ref={ref}
+            className={cn("btn-content", className)}
+            {...props}
+            {...eventProps}
+          >
+            {children}
+          </Comp>
+        </span>
+      )
+    }
+
+    // All other variants (fallback)
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {children}
+      </Comp>
     )
   }
 )
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+

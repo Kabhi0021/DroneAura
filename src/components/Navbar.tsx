@@ -56,7 +56,7 @@ export function Navbar() {
         
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-2 sm:px-2">
         <div className="flex justify-between items-center min-h-[5rem] md:min-h-[5rem]">
           {/* Logo and Brand Left */}
           <div className="flex items-center space-x-3 min-w-[280px] ml-0">
