@@ -266,16 +266,18 @@ All colors MUST be HSL for optimal gradient support.
   position: relative;
   display: inline-block;
   border-radius: 9999px;
+  padding: 0;
+  background: linear-gradient(90deg, #06b6f0 0%, #3b30ff 15%, #ad00d3 85%, #e32cea 100%);
 }
 
 .gradient-outline-clicked .btn-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #06b0f0 0%, #3b30ff 15%, #ad00d3 85%, #e32cea 100%);
+  background: transparent;
   border-radius: 9999px;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   min-height: 2.5rem;

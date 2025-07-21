@@ -68,7 +68,7 @@ const useOutlineActive = () => {
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    const { pressed, eventProps } = usePressed()
+    const { pressed, eventProps } = useOutlineActive()
 
     // Gradient filled (default/hero/cta) — wrapper to swap pink to blue on press
     if (["default", "hero", "cta"].includes(variant || "")) {
