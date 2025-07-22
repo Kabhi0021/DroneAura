@@ -23,9 +23,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-120 active:scale-105 ", //Pink gradient
-        cta: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:brightness-120 active:scale-105", //Pink gradient
+        hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:scale-100 active:scale-105 ", //Pink gradient
+        cta: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:scale-100 active:scale-105", //Pink gradient
         glass: "bg-white/10 backdrop-blur-md text-white border border-white/50 hover:bg-white/20 shadow-soft",
+        scroll: "bg-white text-[#3b30ff] rounded-full shadow-md hover:bg-[#e3e3e3] border-0 flex items-center justify-center",
         outline: "",
         outlineClicked: "",
       },
@@ -68,21 +69,25 @@ const useOutlineActive = () => {
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    const { pressed, eventProps } = useOutlineActive()
 
-    // Gradient filled (default/hero/cta) — wrapper to swap pink to blue on press
+    // Filled (default/hero/cta)
     if (["default", "hero", "cta"].includes(variant || "")) {
+      const [pressed, setPressed] = React.useState(false)
       const isClicked = pressed
       const fillWrapperClass = isClicked
         ? "gradient-fill-blue"
         : "gradient-fill-pink"
       return (
-        <span className={fillWrapperClass} style={{ display: "inline-block" }}>
+        <span className={cn(fillWrapperClass, "w-full md:w-auto")} style={{ display: "inline-block" }}>
           <Comp
             ref={ref}
-            className={cn("btn-fill-content", className)}
+            className={cn("btn-fill-content w-full md:w-auto", className)}
             {...props}
-            {...eventProps}
+            onMouseDown={() => setPressed(true)}
+            onMouseUp={() => setPressed(false)}
+            onMouseLeave={() => setPressed(false)}
+            onTouchStart={() => setPressed(true)}
+            onTouchEnd={() => setPressed(false)}
           >
             {children}
           </Comp>
@@ -90,19 +95,24 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       )
     }
 
-    // Gradient outline and outlineClicked
+    // Outline and outlineClicked
     if (variant === "outline" || variant === "outlineClicked") {
+      const [pressed, setPressed] = React.useState(false)
       const isClicked = variant === "outlineClicked" || pressed
       const outlineClass = isClicked
         ? "gradient-outline-clicked"
         : "gradient-outline"
       return (
-        <span className={outlineClass} style={{ display: "inline-block" }}>
+        <span className={cn(outlineClass, "w-full md:w-auto")} style={{ display: "inline-block" }}>
           <Comp
             ref={ref}
-            className={cn("btn-content", className)}
+            className={cn("btn-content w-full md:w-auto", className)}
             {...props}
-            {...eventProps}
+            onMouseDown={() => setPressed(true)}
+            onMouseUp={() => setPressed(false)}
+            onMouseLeave={() => setPressed(false)}
+            onTouchStart={() => setPressed(true)}
+            onTouchEnd={() => setPressed(false)}
           >
             {children}
           </Comp>
@@ -110,7 +120,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       )
     }
 
-    // All other variants (fallback)
+    // Fallback
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
@@ -122,6 +132,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
+
 Button.displayName = "Button"
 
 export { Button, buttonVariants }

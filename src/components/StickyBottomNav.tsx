@@ -37,7 +37,7 @@ export function StickyBottomNav() {
       : "opacity-0 translate-y-full pointer-events-none"
   )}
 >
-  <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-[0_-8px_32px_0_rgba(30,41,59,0.37)] px-4 py-3 rounded-2xl">
+  <div className="bg-white/95 backdrop-blur-md border-t border-border shadow-[0_-8px_32px_0_rgba(30,41,59,0.37)] px-4 py-3 rounded-full">
 
 
 
@@ -45,7 +45,7 @@ export function StickyBottomNav() {
       <Button
         variant="hero"
         size="lg"
-        className="flex-1 text-base !h-14 !min-h-[56px] !py-4"
+        //className="flex-1 text-base !h-14 !min-h-[56px] !py-4"
         onClick={handleBookFlight}
       >
         <Phone className="h-4 w-4 mr-2" />
@@ -54,7 +54,7 @@ export function StickyBottomNav() {
       <Button
         variant="outline"
         size="lg"
-        className="flex-1 text-base !h-14 !min-h-[56px] !py-4 border-primary text-primary hover:bg-primary hover:text-white"
+        //className="flex-1 text-base !h-14 !min-h-[56px] !py-4 border-primary text-primary hover:bg-primary hover:text-white"
         onClick={handleCustomQuote}
       >
         <MessageSquare className="h-4 w-4 mr-2" />

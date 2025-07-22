@@ -29,11 +29,10 @@ export function ScrollToTop() {
   return (
     <Button
   onClick={scrollToTop}
-  variant="hero"
+  variant="scroll"
   size="icon"
   className={cn(
     "fixed z-[70] shadow-floating transition-all duration-400 right-4 md:right-8",
-    // Y position: mobile above sticky, desktop above floating sticky
     "bottom-[10rem] md:bottom-[12rem]",
     isVisible
       ? "opacity-100 translate-y-0"
