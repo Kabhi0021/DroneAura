@@ -15,11 +15,12 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: PREVIEW=true npm run build
-      - run: rm -f ./dist/CNAME
+      - run: rm -f ./dist/CNAME  # Remove CNAME so preview does NOT use your custom domain
       - name: Deploy preview to GitHub Pages (preview folder)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          destination_dir: preview
+          destination_dir: preview  # THIS IS CRUCIAL!
+
 
