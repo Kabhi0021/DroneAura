@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Set PREVIEW=true for Vite build
+        run: echo "PREVIEW=true" >> $GITHUB_ENV
       - run: npm ci
       - run: npm run build
       - name: Deploy preview to GitHub Pages (preview folder)
