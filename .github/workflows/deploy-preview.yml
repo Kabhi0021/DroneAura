@@ -15,6 +15,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: PREVIEW=true npm run build
+      - run: rm -f ./dist/CNAME
       - name: Deploy preview to GitHub Pages (preview folder)
         uses: peaceiris/actions-gh-pages@v4
         with:
