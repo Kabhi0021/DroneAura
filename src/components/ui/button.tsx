@@ -23,7 +23,7 @@ const buttonVariants = cva(
         hero: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:scale-100 active:scale-105 ", //Pink gradient
         cta: "[background:linear-gradient(90deg,#e32cea_2%,#f61dce_8%,#f35bbf_92%,#f16dac_98%)] text-white font-medium shadow-md hover:scale-100 active:scale-105", //Pink gradient
         glass: "bg-white/10 backdrop-blur-md text-white border border-white/50 hover:bg-white/20 shadow-soft",
-        //scroll: "bg-white text-[#3b30ff] rounded-full shadow-md hover:bg-[#e3e3e3] border-0 flex items-center justify-center",
+        scroll: "bg-white text-[#3b30ff] rounded-full shadow-md hover:bg-[#e3e3e3] border-0 flex items-center justify-center",
         outline: "",
         outlineClicked: "",
       },
