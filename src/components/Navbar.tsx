@@ -107,7 +107,7 @@ export function Navbar() {
 
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center ml-auto px-5 py-3">
+          <div className="hidden md:flex items-center ml-auto px-7 py-3">
             <Button
               variant="hero"
               size="lg"
