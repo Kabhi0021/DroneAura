@@ -244,7 +244,7 @@ All colors MUST be HSL for optimal gradient support.
 }
 
 .gradient-outline .btn-content {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   background: #fff;
@@ -271,7 +271,7 @@ All colors MUST be HSL for optimal gradient support.
 }
 
 .gradient-outline-clicked .btn-content {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -288,8 +288,3 @@ All colors MUST be HSL for optimal gradient support.
   border: none;
   transition: color 0.2s, background-color 0.2s;
 }
-.btn-fill-content, .btn-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} 
