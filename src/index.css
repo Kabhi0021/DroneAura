@@ -212,7 +212,7 @@ All colors MUST be HSL for optimal gradient support.
 .gradient-fill-blue {
   display: inline-block;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #06b0f0 0%, #3b30ff 15%, #ad00d3 85%, #e32cea 100%);
+  background: linear-gradient(90deg, #fcbb26 0%, #fc943b 15%, #fb6436 85%, #f98039 100%);
   padding: 0;
 }
 .btn-fill-content {
@@ -240,7 +240,7 @@ All colors MUST be HSL for optimal gradient support.
   display: inline-block;
   border-radius: 9999px; /* fully rounded */
   padding: 2px; /* Border thickness */
-  background: linear-gradient(90deg, #06b0f0 0%, #3b30ff 15%, #ad00d3 85%, #e32cea 100%);
+  background: linear-gradient(90deg, #fcbb26 0%, #fc943b 15%, #fb6436 85%, #f98039 100%);
 }
 
 .gradient-outline .btn-content {
@@ -248,6 +248,7 @@ All colors MUST be HSL for optimal gradient support.
   align-items: center;
   justify-content: center;
   background: #fff;
+  width: 100%;
   border-radius: 9999px;
   font-weight: normal;
   color: #9148ef;
@@ -267,7 +268,7 @@ All colors MUST be HSL for optimal gradient support.
   display: inline-block;
   border-radius: 9999px;
   padding: 2px;
-  background: linear-gradient(90deg, #06b6f0 0%, #3b30ff 15%, #ad00d3 85%, #e32cea 100%);
+  background: linear-gradient(90deg, #fcbb26 0%, #fc943b 15%, #fb6436 85%, #f98039 100%);
 }
 
 .gradient-outline-clicked .btn-content {
