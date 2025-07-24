@@ -39,7 +39,7 @@ export function ScrollToTop() {
       : "opacity-0 translate-y-16 pointer-events-none"
   )}
 >
-  <ArrowUp className="h-5 w-5" />
+  <ArrowUp className="h-5 w-5 text-inherit stroke-[2]" stroke="currentColor" />
 </Button>
 
   );

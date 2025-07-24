@@ -248,7 +248,7 @@ All colors MUST be HSL for optimal gradient support.
   align-items: center;
   justify-content: center;
   background: #fff;
-  min-width: 180px;
+  min-width: 200px;
   width: 100%;
   border-radius: 9999px;
   font-weight: normal;
@@ -277,7 +277,7 @@ All colors MUST be HSL for optimal gradient support.
   align-items: center;
   justify-content: center;
   background: transparent;
-  min-width: 180px;
+  min-width: 200px;
   width: 100%;
   border-radius: 9999px;
   font-weight: bold;
