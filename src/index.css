@@ -251,7 +251,7 @@ All colors MUST be HSL for optimal gradient support.
   min-width: 200px;
   width: 100%;
   border-radius: 9999px;
-  font-weight: normal;
+  font-weight: bold;
   color: #fb6436;
   padding: 0.75rem 2rem; /* matches px-8 py-3 */
   font-size: 1rem;
